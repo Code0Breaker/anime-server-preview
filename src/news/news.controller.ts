@@ -47,7 +47,7 @@ export class NewsController {
       ): Promise<{ next_page: string; results: CreateNewsDto[] }> {
         const url = nextPage
           ? nextPage
-          : 'https://kodikapi.com/list?token=47e2452dd8e8301b4a61df6994f14dad&sort=updated_at&order=desc&types=anime-serial,anime&limit=100&with_material_data=true&camrip=false&lgbt=false&sort=updated_at&order=desc&with_episodes_data=true';
+          : `https://kodikapi.com/list?token=${process.env.KODIK_TOKEN}&sort=updated_at&order=desc&types=anime-serial,anime&limit=100&with_material_data=true&camrip=false&lgbt=false&sort=updated_at&order=desc&with_episodes_data=true`;
 
         const response = await axios.get(url);
 

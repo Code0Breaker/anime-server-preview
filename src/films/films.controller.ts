@@ -45,7 +45,7 @@ export class FilmsController {
       ): Promise<{ next_page: string; results: CreateFilmDto[] }> {
         const url = nextPage
           ? nextPage
-          : 'https://kodikapi.com/list?token=47e2452dd8e8301b4a61df6994f14dad&sort=updated_at&order=desc&types=anime-serial%2Canime&limit=100&with_material_data=true&camrip=false&lgbt=false&with_episodes_data=true&with_seasons=true';
+          : `https://kodikapi.com/list?token=${process.env.KODIK_TOKEN}&sort=updated_at&order=desc&types=anime-serial%2Canime&limit=100&with_material_data=true&camrip=false&lgbt=false&with_episodes_data=true&with_seasons=true`;
 
         const response = await axios.get(url);
 
